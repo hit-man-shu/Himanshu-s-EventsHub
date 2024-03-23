@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="flex-container">
           <div className="title-container">
             <h1 className="title">Welcome to {"Himanshu's Events Hub"}</h1>
-            <p className="subtitle">Discover the best events in town</p>
+            <p className="subtitle">Discover the best events in town..!!</p>
           </div>
           <Link className="btn" to="events">
             Browse Events

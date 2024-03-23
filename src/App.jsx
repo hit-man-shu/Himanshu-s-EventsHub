@@ -1,5 +1,5 @@
 import {
-  Navigate,
+  // Navigate,
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
@@ -14,13 +14,14 @@ import EditEvent, {
   loader as editEventLoader,
 } from "./components/Events/EditEvent.jsx";
 import { queryClient } from "./util/http.js";
+import Hero from "./components/Events/Hero.jsx";
 // import Hero from "./components/Events/Hero.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="events" />,
-    // element: <Hero />,
+    // element: <Navigate to="events" />,
+    element: <Hero />,
   },
   {
     path: "/events",
