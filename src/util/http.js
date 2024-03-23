@@ -5,14 +5,14 @@ export const queryClient = new QueryClient();
 
 export async function fetchEvents({ signal, searchTerm, max }) {
   // eslint-disable-next-line no-useless-catch
-  let url = "http://localhost:3000/events";
+  let url = "https://himanshu-s-eventshub.onrender.com/events";
 
   if (searchTerm && max) {
     url += "?search=" + searchTerm + "&max=" + max;
   } else if (searchTerm) {
-    url = `http://localhost:3000/events?search=${searchTerm}`;
+    url = `https://himanshu-s-eventshub.onrender.com/events?search=${searchTerm}`;
   } else if (max) {
-    url = `http://localhost:3000/events?max=${max}`;
+    url = `https://himanshu-s-eventshub.onrender.com/events?max=${max}`;
   }
 
   // eslint-disable-next-line no-useless-catch
@@ -28,7 +28,7 @@ export async function createNewEvent(eventData) {
   // eslint-disable-next-line no-useless-catch
   try {
     const response = await axios.post(
-      `http://localhost:3000/events`,
+      `https://himanshu-s-eventshub.onrender.com/events`,
       eventData
     );
     return response.data.event;
@@ -40,9 +40,12 @@ export async function createNewEvent(eventData) {
 export async function fetchSelectableImages({ signal }) {
   // eslint-disable-next-line no-useless-catch
   try {
-    const response = await axios.get(`http://localhost:3000/events/images`, {
-      signal,
-    });
+    const response = await axios.get(
+      `https://himanshu-s-eventshub.onrender.com/events/images`,
+      {
+        signal,
+      }
+    );
 
     return response.data.images;
   } catch (error) {
@@ -53,9 +56,12 @@ export async function fetchSelectableImages({ signal }) {
 export async function fetchEvent({ id, signal }) {
   // eslint-disable-next-line no-useless-catch
   try {
-    const response = await axios.get(`http://localhost:3000/events/${id}`, {
-      signal,
-    });
+    const response = await axios.get(
+      `https://himanshu-s-eventshub.onrender.com/events/${id}`,
+      {
+        signal,
+      }
+    );
     return response.data.event;
   } catch (error) {
     throw error;
@@ -66,7 +72,9 @@ export async function deleteEvent({ id }) {
   // eslint-disable-next-line no-useless-catch
   // eslint-disable-next-line no-useless-catch
   try {
-    const response = await axios.delete(`http://localhost:3000/events/${id}`);
+    const response = await axios.delete(
+      `https://himanshu-s-eventshub.onrender.com/events/${id}`
+    );
     return response.data;
   } catch (error) {
     throw error;
@@ -76,9 +84,12 @@ export async function deleteEvent({ id }) {
 export async function updateEvent({ id, event }) {
   // eslint-disable-next-line no-useless-catch
   try {
-    const response = await axios.put(`http://localhost:3000/events/${id}`, {
-      event,
-    });
+    const response = await axios.put(
+      `https://himanshu-s-eventshub.onrender.com/events/${id}`,
+      {
+        event,
+      }
+    );
     return response.data;
   } catch (error) {
     throw error;
